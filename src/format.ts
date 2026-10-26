@@ -22,8 +22,8 @@ export function lossTone(loss: number): Tone {
 }
 
 export function stabilityTone(stability: number): Tone {
-  if (stability > 95) return "good";
-  if (stability >= 85) return "warn";
+  if (stability > 90) return "good";
+  if (stability >= 75) return "warn";
   return "bad";
 }
 
