@@ -31,7 +31,7 @@ function pingText(kind: "good" | "warn" | "bad" | "muted"): string {
 }
 
 const REGION_KEY = "tick-latency-region";
-const APP_VERSION = "v0.5.0";
+const APP_VERSION = "v0.5.1";
 
 const MODES = [
   { id: "15", label: "15s", ms: 15_000 },
@@ -454,12 +454,6 @@ export function App() {
               Handshake samples are thrown out. The reply stays short. The edge does not send a
               world snapshot back.
             </p>
-            <p class="mb-0 max-w-[42rem]">
-              Stability is calculated using how high and how many times ping spikes occurs relative to
-              measured baseline ping. A sample counts only when it is more than 0.5 ms above the
-              baseline ping. It counts as one full spike at 50 ms above the baseline ping, and as more
-              if it goes higher. The score falls to 0% when half of the samples are full spikes.
-            </p>
             <p class="mb-4 max-w-[42rem]">
               Jitter is the RFC 3550 average. Loss is a probe that was sent and did not return.
               Stopping the test does not count as loss. If the link cannot hold that many probes in
@@ -469,6 +463,12 @@ export function App() {
               UDP PATH is a STUN datagram to the nearest public relay. That number is closer to
               in-game ping. The city list is a cloud edge in that city, not a game server. A real
               match can be lower where the game peers off the public internet.
+            </p>
+            <p class="mb-4 max-w-[42rem]">
+              Stability is calculated using how high and how many times ping spikes occurs relative to
+              measured baseline ping. A sample counts only when it is more than 0.5 ms above the
+              baseline ping. It counts as one full spike at 50 ms above the baseline ping, and as more
+              if it goes higher. The score falls to 0% when half of the samples are full spikes.
             </p>
             <p class="mb-4 max-w-[42rem]">
               A live range is a few megabytes a minute. The screen stays awake while it runs.
